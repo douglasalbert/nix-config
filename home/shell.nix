@@ -85,6 +85,19 @@ in
     };
   };
 
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+    config = {
+      global = {
+        warn_timeout = "2m";
+        hide_env_diff = true;
+      };
+    };
+  };
+
   programs.fzf = {
     enable = true;
     enableBashIntegration = true;
