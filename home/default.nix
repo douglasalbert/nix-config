@@ -17,6 +17,11 @@
 
   programs.home-manager.enable = true;
 
+  programs.ssh = {
+    enable = true;
+    matchBlocks."studio".hostname = "100.72.99.15";
+  };
+
   home.packages = with pkgs; [
     actionlint
     ast-grep
