@@ -42,7 +42,6 @@
     ripgrep
     shellcheck
     shfmt
-    signal-cli
     television
     tree
     uv

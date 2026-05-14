@@ -4,10 +4,22 @@
   homebrew = {
 
     brews = [
-      "oven-sh/bun/bun"
+      "cmake"
       "colima"
+      "dav1d"
       "devcontainer"
       "docker"
+      "ffmpeg"
+      "lame"
+      "libvmaf"
+      "libvpx"
+      "opus"
+      "oven-sh/bun/bun"
+      "sdl2"
+      "signal-cli"
+      "svt-av1"
+      "x264"
+      "x265"
     ];
 
     casks = [
