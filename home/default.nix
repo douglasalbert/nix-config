@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, inputs, ... }:
 
 {
   imports = [
@@ -48,13 +48,14 @@
     wget
     zizmor
     zsh-completions
+    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.pi
   ];
 
   home.file.".config/aerospace/aerospace.toml".source = ../files/aerospace.toml;
 
-  home.activation.piTools = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    mkdir -p $HOME/.pi/agent/bin
-    ln -sf "$(readlink -f /etc/profiles/per-user/da/bin/fd)" $HOME/.pi/agent/bin/fd
-    ln -sf "$(readlink -f /etc/profiles/per-user/da/bin/rg)" $HOME/.pi/agent/bin/rg
+  home.activation.piTools = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    $DRY_RUN_CMD mkdir -p $HOME/.pi/agent/bin
+    $DRY_RUN_CMD ln -sf ${pkgs.fd}/bin/fd $HOME/.pi/agent/bin/fd
+    $DRY_RUN_CMD ln -sf ${pkgs.ripgrep}/bin/rg $HOME/.pi/agent/bin/rg
   '';
 }

@@ -18,6 +18,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -51,5 +56,9 @@
       darwinConfigurations."daMacBook" = mkDarwin "daMacBook" [ ];
 
       formatter.${system} = inputs.nixpkgs.legacyPackages.${system}.nixfmt;
+
+      devShells.${system}.default = inputs.nixpkgs.legacyPackages.${system}.mkShell {
+        packages = [ inputs.nixpkgs.legacyPackages.${system}.nixfmt ];
+      };
     };
 }
