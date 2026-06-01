@@ -79,9 +79,9 @@ in
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks."*" = {
-      addKeysToAgent = "yes";
-      identityFile = "~/.ssh/id_ed25519";
+    settings."*" = {
+      AddKeysToAgent = "yes";
+      IdentityFile = "~/.ssh/id_ed25519";
     };
   };
 

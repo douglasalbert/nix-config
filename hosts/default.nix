@@ -63,7 +63,7 @@
 
     onActivation = {
       autoUpdate = false;
-      cleanup = "zap";
+      cleanup = "none";
     };
   };
   environment.systemPath = [ "/opt/homebrew/bin" "/opt/homebrew/sbin" ];

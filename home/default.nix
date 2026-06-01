@@ -19,7 +19,7 @@
 
   programs.ssh = {
     enable = true;
-    matchBlocks."studio".hostname = "100.72.99.15";
+    settings."studio".HostName = "100.72.99.15";
   };
 
   home.packages = with pkgs; [
