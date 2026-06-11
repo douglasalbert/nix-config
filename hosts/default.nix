@@ -46,6 +46,7 @@
       "google-chrome"
       "granola"
       "iina"
+      "shortcat"
       "signal"
       "tailscale-app"
       "transmission"

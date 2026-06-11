@@ -53,6 +53,19 @@
 
   home.file.".config/aerospace/aerospace.toml".source = ../files/aerospace.toml;
 
+  home.file.".homebrew/trust.json".text = builtins.toJSON {
+    taps = [
+      "arthur-ficial/tap"
+      "eugene1g/safehouse"
+      "nikitabobko/tap"
+      "osx-cross/arm"
+      "osx-cross/avr"
+    ];
+    formulae = [];
+    casks = [];
+    commands = [];
+  };
+
   home.activation.piTools = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     $DRY_RUN_CMD mkdir -p $HOME/.pi/agent/bin
     $DRY_RUN_CMD ln -sf ${pkgs.fd}/bin/fd $HOME/.pi/agent/bin/fd
