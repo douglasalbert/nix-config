@@ -1,4 +1,4 @@
-{ hostname, ... }:
+{ hostname, lib, ... }:
 
 {
   # Primary user (required by nix-darwin for user-scoped defaults)
@@ -26,11 +26,12 @@
       "nikitabobko/tap"
       "osx-cross/arm"
       "osx-cross/avr"
+      "oven-sh/bun"
     ];
 
     brews = [
-      "arthur-ficial/tap/apfel"
-      "eugene1g/safehouse/agent-safehouse"
+      { name = "arthur-ficial/tap/apfel"; trusted = true; }
+      { name = "eugene1g/safehouse/agent-safehouse"; trusted = true; }
       "gemini-cli"
       "container"
       "mas"
@@ -39,7 +40,7 @@
     ];
 
     casks = [
-      "aerospace"
+      { name = "nikitabobko/tap/aerospace"; trusted = true; }
       "claude"
       "obsidian"
       "ghostty"
@@ -234,6 +235,15 @@
       };
     };
   };
+
+  # Writes trust.json as a real owned file before brew bundle runs.
+  # home.file creates a nix-store symlink that brew trust refuses to write to.
+  system.activationScripts.homebrew.text = lib.mkBefore ''
+    rm -f /Users/da/.homebrew/trust.json
+    mkdir -p /Users/da/.homebrew
+    printf '%s' '{"taps":["arthur-ficial/tap","eugene1g/safehouse","nikitabobko/tap","osx-cross/arm","osx-cross/avr","oven-sh/bun"],"formulae":["arthur-ficial/tap/apfel","eugene1g/safehouse/agent-safehouse","oven-sh/bun/bun"],"casks":["nikitabobko/tap/aerospace"],"commands":[]}' > /Users/da/.homebrew/trust.json
+    chown da:staff /Users/da/.homebrew/trust.json
+  '';
 
   # Activation script for settings not covered by system.defaults
   system.activationScripts.postActivation.text = ''

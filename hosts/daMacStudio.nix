@@ -14,7 +14,7 @@
       "libvmaf"
       "libvpx"
       "opus"
-      "oven-sh/bun/bun"
+      { name = "oven-sh/bun/bun"; trusted = true; }
       "sdl2"
       "signal-cli"
       "svt-av1"
