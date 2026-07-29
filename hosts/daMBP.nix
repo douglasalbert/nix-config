@@ -1,0 +1,33 @@
+{ ... }:
+
+{
+  homebrew = {
+
+    brews = [
+      "cmake"
+      "colima"
+      "dav1d"
+      "devcontainer"
+      "docker"
+      "ffmpeg"
+      "lame"
+      "libvmaf"
+      "libvpx"
+      "opus"
+      { name = "oven-sh/bun/bun"; trusted = true; }
+      "sdl2"
+      "signal-cli"
+      "svt-av1"
+      "x264"
+      "x265"
+    ];
+
+    casks = [
+      "discord"
+      "gstreamer-runtime"
+      "handbrake-app"
+      "mac-mouse-fix"
+      "rustdesk"
+    ];
+  };
+}

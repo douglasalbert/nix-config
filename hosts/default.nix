@@ -242,7 +242,7 @@
     rm -f /Users/da/.homebrew/trust.json
     mkdir -p /Users/da/.homebrew
     printf '%s' '{"taps":["arthur-ficial/tap","eugene1g/safehouse","nikitabobko/tap","osx-cross/arm","osx-cross/avr","oven-sh/bun"],"formulae":["arthur-ficial/tap/apfel","eugene1g/safehouse/agent-safehouse","oven-sh/bun/bun"],"casks":["nikitabobko/tap/aerospace"],"commands":[]}' > /Users/da/.homebrew/trust.json
-    chown da:staff /Users/da/.homebrew/trust.json
+    chown da:staff /Users/da/.homebrew /Users/da/.homebrew/trust.json
   '';
 
   # Activation script for settings not covered by system.defaults

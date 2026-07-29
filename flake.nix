@@ -52,7 +52,7 @@
     in
     {
       darwinConfigurations."daMacStudio" = mkDarwin "daMacStudio" [ ./hosts/daMacStudio.nix ];
-      darwinConfigurations."daMBP" = mkDarwin "daMBP" [ ];
+      darwinConfigurations."daMBP" = mkDarwin "daMBP" [ ./hosts/daMBP.nix ];
       darwinConfigurations."daMacBook" = mkDarwin "daMacBook" [ ];
 
       formatter.${system} = inputs.nixpkgs.legacyPackages.${system}.nixfmt;

@@ -48,7 +48,10 @@
     wget
     zizmor
     zsh-completions
-    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.pi
+    # pi disabled: llm-agents.nix's Bun-compiled binary loses its ad-hoc
+    # codesign in nix's fixupPhase and gets SIGKILLed by macOS. Re-add once
+    # upstream fixes it (still broken as of rev 19ed15d).
+    # inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.pi
   ];
 
   home.file.".config/aerospace/aerospace.toml".source = ../files/aerospace.toml;
